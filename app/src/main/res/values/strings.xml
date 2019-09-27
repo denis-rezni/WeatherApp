@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="label_weather">Weather</string>
+    <string name="weather">RAIN</string>
+    <string name="location">St.Petersburg</string>
+    <string name="temperature">10°C</string>
+    <string name="day1">Today</string>
+    <string name="day2">Tue</string>
+    <string name="day3">Wed</string>
+    <string name="day4">Thu</string>
+    <string name="day5">Fri</string>
+    <string name="day6">Sat</string>
+    <string name="day7">Sun</string>
+    <string name="tempDay2">9°C</string>
+    <string name="tempDay3">10°C</string>
+    <string name="tempDay4">9°C</string>
+    <string name="tempDay5">11°C</string>
+    <string name="tempDay6">10°C</string>
+    <string name="tempDay7">8°C</string>
+</resources>

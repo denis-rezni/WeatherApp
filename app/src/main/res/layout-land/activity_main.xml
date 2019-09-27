@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/upperLabel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/darkBlue"
+        android:gravity="center"
+        android:text="@string/label_weather"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
+
+    <View
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/lightBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/weekScroll"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upperLabel"
+        app:layout_constraintVertical_weight="5" />
+
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toStartOf="@id/temperature"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintTop_toTopOf="@id/background"
+        app:srcCompat="@drawable/ic_002_rain" />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@id/weather"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toEndOf="@id/weatherImage"
+        app:layout_constraintTop_toTopOf="@id/background"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weather"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/location"
+        app:layout_constraintEnd_toEndOf="@id/temperature"
+        app:layout_constraintStart_toStartOf="@id/temperature"
+        app:layout_constraintTop_toBottomOf="@id/temperature"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/temperature"
+        app:layout_constraintStart_toStartOf="@id/temperature"
+        app:layout_constraintTop_toBottomOf="@id/weather"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ScrollView
+        android:id="@+id/weekScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/background"
+        app:layout_constraintTop_toBottomOf="@id/upperLabel">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageDay1"
+                style="@style/weekForecastImageSizes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/textDay1"
+                app:srcCompat="@drawable/ic_002_rain" />
+
+            <TextView
+                android:id="@+id/textDay1"
+                style="@style/weekForecastDay"
+                android:text="@string/day1"
+                app:layout_constraintEnd_toEndOf="@+id/imageDay1"
+                app:layout_constraintStart_toStartOf="@+id/imageDay1"
+                app:layout_constraintTop_toBottomOf="@+id/imageDay1"
+                app:layout_constraintBottom_toTopOf="@id/tempDay1"/>
+
+            <TextView
+                android:id="@+id/tempDay1"
+                style="@style/weekForecastTemp"
+                android:text="@string/temperature"
+                app:layout_constraintBottom_toTopOf="@+id/imageDay2"
+                app:layout_constraintEnd_toEndOf="@+id/textDay1"
+                app:layout_constraintStart_toStartOf="@+id/textDay1" />
+
+            <ImageView
+                android:id="@+id/imageDay2"
+                style="@style/weekForecastImageSizes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempDay1"
+                app:layout_goneMarginTop="20dp"
+                app:srcCompat="@drawable/ic_004_storm" />
+
+            <TextView
+                android:id="@+id/textDay2"
+                style="@style/weekForecastDay"
+                android:text="@string/day2"
+                app:layout_constraintEnd_toEndOf="@+id/imageDay2"
+                app:layout_constraintStart_toStartOf="@+id/imageDay2"
+                app:layout_constraintTop_toBottomOf="@+id/imageDay2"
+                app:layout_constraintBottom_toTopOf="@id/tempDay2"/>
+
+            <TextView
+                android:id="@+id/tempDay2"
+                style="@style/weekForecastTemp"
+                android:text="@string/tempDay2"
+                app:layout_constraintEnd_toEndOf="@+id/textDay2"
+                app:layout_constraintStart_toStartOf="@+id/textDay2"
+                app:layout_constraintBottom_toTopOf="@+id/imageDay3"/>
+
+            <ImageView
+                android:id="@+id/imageDay3"
+                style="@style/weekForecastImageSizes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempDay2"
+                app:layout_goneMarginTop="20dp"
+                app:srcCompat="@drawable/ic_002_rain" />
+
+            <TextView
+                android:id="@+id/textDay3"
+                style="@style/weekForecastDay"
+                android:text="@string/day3"
+                app:layout_constraintEnd_toEndOf="@+id/imageDay3"
+                app:layout_constraintStart_toStartOf="@+id/imageDay3"
+                app:layout_constraintTop_toBottomOf="@+id/imageDay3"
+                app:layout_constraintBottom_toTopOf="@id/tempDay3"/>
+
+            <TextView
+                android:id="@+id/tempDay3"
+                style="@style/weekForecastTemp"
+                android:text="@string/tempDay3"
+                app:layout_constraintEnd_toEndOf="@+id/textDay3"
+                app:layout_constraintStart_toStartOf="@+id/textDay3"
+                app:layout_constraintBottom_toTopOf="@+id/imageDay4"/>
+
+            <ImageView
+                android:id="@+id/imageDay4"
+                style="@style/weekForecastImageSizes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempDay3"
+                app:layout_goneMarginTop="20dp"
+                app:srcCompat="@drawable/ic_003_cloud" />
+
+            <TextView
+                android:id="@+id/textDay4"
+                style="@style/weekForecastDay"
+                android:text="@string/day4"
+                app:layout_constraintEnd_toEndOf="@+id/imageDay4"
+                app:layout_constraintStart_toStartOf="@+id/imageDay4"
+                app:layout_constraintTop_toBottomOf="@+id/imageDay4"
+                app:layout_constraintBottom_toTopOf="@id/tempDay4"/>
+
+            <TextView
+                android:id="@+id/tempDay4"
+                style="@style/weekForecastTemp"
+                android:text="@string/tempDay4"
+                app:layout_constraintEnd_toEndOf="@+id/textDay4"
+                app:layout_constraintStart_toStartOf="@+id/textDay4"
+                app:layout_constraintBottom_toTopOf="@+id/imageDay5"/>
+
+            <ImageView
+                android:id="@+id/imageDay5"
+                style="@style/weekForecastImageSizes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempDay4"
+                app:layout_goneMarginTop="20dp"
+                app:srcCompat="@drawable/ic_004_storm" />
+
+            <TextView
+                android:id="@+id/textDay5"
+                style="@style/weekForecastDay"
+                android:text="@string/day5"
+                app:layout_constraintEnd_toEndOf="@+id/imageDay5"
+                app:layout_constraintStart_toStartOf="@+id/imageDay5"
+                app:layout_constraintTop_toBottomOf="@+id/imageDay5"
+                app:layout_constraintBottom_toTopOf="@id/tempDay5"/>
+
+            <TextView
+                android:id="@+id/tempDay5"
+                style="@style/weekForecastTemp"
+                android:text="@string/tempDay2"
+                app:layout_constraintEnd_toEndOf="@+id/textDay5"
+                app:layout_constraintStart_toStartOf="@+id/textDay5"
+                app:layout_constraintBottom_toTopOf="@+id/imageDay6"/>
+
+            <ImageView
+                android:id="@+id/imageDay6"
+                style="@style/weekForecastImageSizes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempDay5"
+                app:layout_goneMarginTop="20dp"
+                app:srcCompat="@drawable/ic_013_snow" />
+
+            <TextView
+                android:id="@+id/textDay6"
+                style="@style/weekForecastDay"
+                android:text="@string/day6"
+                app:layout_constraintEnd_toEndOf="@+id/imageDay6"
+                app:layout_constraintStart_toStartOf="@+id/imageDay6"
+                app:layout_constraintTop_toBottomOf="@+id/imageDay6"
+                app:layout_constraintBottom_toTopOf="@id/tempDay6"/>
+
+            <TextView
+                android:id="@+id/tempDay6"
+                style="@style/weekForecastTemp"
+                android:text="@string/tempDay2"
+                app:layout_constraintEnd_toEndOf="@+id/textDay6"
+                app:layout_constraintStart_toStartOf="@+id/textDay6"
+                app:layout_constraintBottom_toTopOf="@+id/imageDay7"/>
+
+            <ImageView
+                android:id="@+id/imageDay7"
+                style="@style/weekForecastImageSizes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tempDay6"
+                app:layout_goneMarginTop="20dp"
+                app:srcCompat="@drawable/ic_022_sun" />
+
+            <TextView
+                android:id="@+id/textDay7"
+                style="@style/weekForecastDay"
+                android:text="@string/day7"
+                app:layout_constraintEnd_toEndOf="@+id/imageDay7"
+                app:layout_constraintStart_toStartOf="@+id/imageDay7"
+                app:layout_constraintTop_toBottomOf="@+id/imageDay7"
+                app:layout_constraintBottom_toTopOf="@id/tempDay7"/>
+
+            <TextView
+                android:id="@+id/tempDay7"
+                style="@style/weekForecastTemp"
+                android:text="@string/tempDay7"
+                app:layout_constraintEnd_toEndOf="@+id/textDay7"
+                app:layout_constraintStart_toStartOf="@+id/textDay7"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
